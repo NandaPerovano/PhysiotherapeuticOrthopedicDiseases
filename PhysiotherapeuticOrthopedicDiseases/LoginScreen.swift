@@ -16,6 +16,15 @@ class LoginScreen: UIView {
         return image
     }()
     
+    lazy var logoAppImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "simbolo")
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 12
+        return image
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addElements()
@@ -28,6 +37,7 @@ class LoginScreen: UIView {
     
     private func addElements() {
         self.addSubview(self.subImageview)
+        self.addSubview(self.logoAppImageView)
     }
     
     private func configConstraints() {
@@ -36,7 +46,12 @@ class LoginScreen: UIView {
             subImageview.topAnchor.constraint(equalTo: topAnchor),
             subImageview.leadingAnchor.constraint(equalTo: leadingAnchor),
             subImageview.trailingAnchor.constraint(equalTo: trailingAnchor),
-            subImageview.bottomAnchor.constraint(equalTo: bottomAnchor)
+            subImageview.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            logoAppImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 55),
+            logoAppImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            logoAppImageView.heightAnchor.constraint(equalToConstant: 108),
+            logoAppImageView.widthAnchor.constraint(equalToConstant: 108)
         ])
     }
 }
