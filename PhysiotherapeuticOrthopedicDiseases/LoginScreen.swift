@@ -25,6 +25,15 @@ class LoginScreen: UIView {
         return image
     }()
     
+    lazy var loginLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .yellow
+        label.font = UIFont.boldSystemFont(ofSize: 40)
+        label.text = "FISIOTERAPIA"
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addElements()
@@ -38,6 +47,7 @@ class LoginScreen: UIView {
     private func addElements() {
         self.addSubview(self.subImageview)
         self.addSubview(self.logoAppImageView)
+        self.addSubview(self.loginLabel)
     }
     
     private func configConstraints() {
@@ -51,7 +61,10 @@ class LoginScreen: UIView {
             logoAppImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 55),
             logoAppImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             logoAppImageView.heightAnchor.constraint(equalToConstant: 108),
-            logoAppImageView.widthAnchor.constraint(equalToConstant: 108)
+            logoAppImageView.widthAnchor.constraint(equalToConstant: 108),
+            
+            loginLabel.topAnchor.constraint(equalTo: logoAppImageView.bottomAnchor, constant: 16),
+            loginLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 }
